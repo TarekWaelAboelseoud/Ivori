@@ -1,0 +1,44 @@
+{
+  "sourceFolder": "C:/Users/drbbo/Downloads/portfolio",
+  "assets": [
+    {
+      "id": "ark-production-01",
+      "client": "ARK",
+      "type": "photo",
+      "source": "DSC03101.jpg",
+      "publicPath": "/portfolio/ark-production-01.jpg"
+    },
+    {
+      "id": "ark-studio-01",
+      "client": "ARK",
+      "type": "photo",
+      "source": "DSC02896-2 (1).jpg",
+      "publicPath": "/portfolio/ark-studio-01.jpg"
+    },
+    {
+      "id": "kvl-commerce-01",
+      "client": "KVL",
+      "type": "photo",
+      "source": "DSC02975 (1).jpg",
+      "publicPath": "/portfolio/kvl-commerce-01.jpg"
+    },
+    {
+      "id": "kvl-detail-01",
+      "client": "KVL",
+      "type": "photo",
+      "source": "DSC03329 (1).jpg",
+      "publicPath": "/portfolio/kvl-detail-01.jpg"
+    },
+    {
+      "id": "ivori-production-reel",
+      "client": "Ivori Digitals",
+      "type": "video",
+      "source": "final 4.mov",
+      "publicPath": "/portfolio/ivori-production-reel.mp4",
+      "poster": "/portfolio/ark-studio-01.jpg",
+      "format": "mp4/h264",
+      "notes": "Converted from the original MOV source with H.264, no audio, 720px height, faststart enabled for muted autoplay."
+    }
+  ],
+  "notes": "Images were resized to a maximum dimension of 1800px and JPEG quality 82. The production MOV source was converted to a web-optimized H.264 MP4 and copied into public/portfolio so it survives outside the local Downloads folder."
+}

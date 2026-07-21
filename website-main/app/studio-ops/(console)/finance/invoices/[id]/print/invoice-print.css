@@ -1,0 +1,243 @@
+/* Formal A4 invoice — print-to-PDF */
+
+.invoice-print-shell {
+  min-height: 100vh;
+  background: #ece7de;
+  color: #1a1814;
+  padding: 1.5rem;
+}
+
+.invoice-print-toolbar {
+  max-width: 210mm;
+  margin: 0 auto 1rem;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.formal-invoice {
+  max-width: 210mm;
+  min-height: 297mm;
+  margin: 0 auto;
+  padding: 18mm 16mm;
+  background: #fff;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.08);
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 11pt;
+  line-height: 1.5;
+  color: #1a1814;
+}
+
+.formal-invoice-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 2px solid #1a1814;
+  margin-bottom: 1.5rem;
+}
+
+.formal-invoice-brand {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.formal-invoice-company {
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.formal-invoice-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  margin: 0;
+}
+
+.formal-invoice-title-block {
+  text-align: right;
+}
+
+.formal-invoice-meta {
+  font-size: 0.85rem;
+  color: #5c564d;
+  margin: 0.15rem 0 0;
+}
+
+.formal-invoice-meta-grid {
+  margin-top: 1rem;
+  display: grid;
+  gap: 0.5rem;
+  text-align: right;
+  font-size: 0.85rem;
+}
+
+.formal-invoice-meta-grid dt {
+  color: #7a7268;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.formal-invoice-meta-grid dd {
+  margin: 0;
+  font-weight: 600;
+}
+
+.formal-invoice-parties {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-bottom: 1.75rem;
+}
+
+.formal-invoice-label {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #8f7139;
+  margin: 0 0 0.35rem;
+}
+
+.formal-invoice-party-name {
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.formal-invoice-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1.5rem;
+  font-size: 0.9rem;
+}
+
+.formal-invoice-table th {
+  text-align: left;
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.6rem 0.5rem;
+  border-bottom: 1px solid #1a1814;
+  color: #5c564d;
+}
+
+.formal-invoice-table th:nth-child(n + 2),
+.formal-invoice-table td:nth-child(n + 2) {
+  text-align: right;
+}
+
+.formal-invoice-table td {
+  padding: 0.85rem 0.5rem;
+  border-bottom: 1px solid #ddd6c8;
+  vertical-align: top;
+}
+
+.formal-invoice-line-desc {
+  margin: 0.35rem 0 0;
+  font-size: 0.85rem;
+  color: #5c564d;
+}
+
+.formal-invoice-totals {
+  margin-left: auto;
+  max-width: 16rem;
+  margin-bottom: 1.75rem;
+}
+
+.formal-invoice-totals-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.35rem 0;
+  font-size: 0.9rem;
+}
+
+.formal-invoice-totals-grand {
+  border-top: 2px solid #1a1814;
+  margin-top: 0.5rem;
+  padding-top: 0.65rem;
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.formal-invoice-notes {
+  margin-bottom: 2rem;
+  padding: 1rem;
+  background: #f7f3eb;
+  border-left: 3px solid #8f7139;
+  font-size: 0.88rem;
+}
+
+.formal-invoice-signatures {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+  page-break-inside: avoid;
+}
+
+.formal-invoice-sign-line {
+  height: 2.5rem;
+  border-bottom: 1px solid #1a1814;
+  margin: 0.5rem 0;
+}
+
+.formal-invoice-footer {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid #ddd6c8;
+  font-size: 0.75rem;
+  color: #7a7268;
+  text-align: center;
+}
+
+@media print {
+  @page {
+    size: A4;
+    margin: 12mm;
+  }
+
+  html,
+  body {
+    background: #fff !important;
+  }
+
+  .no-print,
+  .admin-header,
+  .admin-panel > header {
+    display: none !important;
+  }
+
+  .invoice-print-shell {
+    background: #fff;
+    padding: 0;
+  }
+
+  .formal-invoice {
+    box-shadow: none;
+    max-width: none;
+    min-height: auto;
+    padding: 0;
+  }
+}
+
+@media (max-width: 640px) {
+  .formal-invoice-header,
+  .formal-invoice-parties,
+  .formal-invoice-signatures {
+    grid-template-columns: 1fr;
+    flex-direction: column;
+  }
+
+  .formal-invoice-title-block {
+    text-align: left;
+  }
+
+  .formal-invoice-meta-grid {
+    text-align: left;
+  }
+}
